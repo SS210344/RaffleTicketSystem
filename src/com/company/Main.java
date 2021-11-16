@@ -91,13 +91,13 @@ public class Main {
         if(!foundTicket){
             System.out.println("invalid ticket");
         }
-        if(isPrime){
-            System.out.println("ticket is prime you win");
+        else {
+            if (isPrime) {
+                System.out.println("ticket is prime you win");
+            } else {
+                System.out.println("ticket is not prime you lose");
+            }
         }
-        else{
-            System.out.println("ticket is not prime you lose");
-        }
-
 
 
 

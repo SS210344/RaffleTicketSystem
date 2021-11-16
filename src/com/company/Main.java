@@ -13,9 +13,9 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
 
-        Mainmenu();
+        MainMenu();
 
-    }public static void Mainmenu(){
+    }public static void MainMenu(){
 
 
         while(true) {
@@ -31,6 +31,7 @@ public class Main {
                         break;
                     case 2:
                         System.out.println("check ticket");
+                        checkTicket();
                         break;
                     default:
                         System.out.println("exit");
@@ -47,14 +48,14 @@ public class Main {
     }
     public static String userInput(){
         BufferedReader bufferedReader = new BufferedReader((new InputStreamReader(System.in)));
-        String userin= " ";
+        String userIn= " ";
         try {
-             userin = bufferedReader.readLine();
+             userIn = bufferedReader.readLine();
         }
         catch (Exception e){
             System.out.println("error in user input"+e);
         }
-        return userin;
+        return userIn;
     }
     public static int randNum(int min , int max){
         Random random = new Random();
@@ -67,5 +68,50 @@ public class Main {
         System.out.println("your number is "+randNum);
         Numbers.add(randNum);
         Names.add(name);
+    }
+    public static void checkTicket(){
+        boolean isPrime = false;
+        System.out.println("name on the ticket:");
+        String name = userInput();
+        System.out.println("number on the ticket:");
+        int number = Integer.parseInt(userInput());
+
+        boolean foundTicket = false;
+
+        for (int i = 0; i < Names.size(); i++) {
+            if(Names.get(i).equals(name)){
+                if(Numbers.get(i)== number){
+                    System.out.println("valid ticket");
+                    foundTicket = true;
+                    isPrime = checkPrime(number);
+                }
+            }
+        }
+
+        if(!foundTicket){
+            System.out.println("invalid ticket");
+        }
+        if(isPrime){
+            System.out.println("ticket is prime you win");
+        }
+        else{
+            System.out.println("ticket is not prime you lose");
+        }
+
+
+
+
+    }
+    public static boolean checkPrime(int number){
+        boolean IsPrime = true;
+
+        for (int i = 2; i < number; i++) {
+            if(number%i == 0){
+                IsPrime = false;
+                break;
+            }
+
+        }
+        return IsPrime;
     }
 }

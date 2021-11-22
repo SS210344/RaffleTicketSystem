@@ -18,7 +18,7 @@ public class Main {
 // main method of main menu
     }public static void MainMenu(){
 
-
+// main menu options
         while(true) {
             try {
                 System.out.println("main Menu: 1 to buy ticket; 2 to check ticket; other to exit");
@@ -94,7 +94,7 @@ public class Main {
                 }
             }
         }
-
+// tells user ticket results
         if(!foundTicket){
             System.out.println("invalid ticket");
         }

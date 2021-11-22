@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Main {
+    // arrays of tickets
     private static ArrayList<Integer>Numbers = new ArrayList<>();
     private static ArrayList<String>Names = new ArrayList<>();
 
@@ -14,7 +15,7 @@ public class Main {
         // write your code here
 
         MainMenu();
-
+// main method of main menu
     }public static void MainMenu(){
 
 
@@ -46,6 +47,7 @@ public class Main {
             }
         }
     }
+    // get user string input
     public static String userInput(){
         BufferedReader bufferedReader = new BufferedReader((new InputStreamReader(System.in)));
         String userIn= " ";
@@ -54,13 +56,16 @@ public class Main {
         }
         catch (Exception e){
             System.out.println("error in user input"+e);
+
         }
         return userIn;
     }
+    // gives random number in range
     public static int randNum(int min , int max){
         Random random = new Random();
         return random.nextInt(max-min)+min;
     }
+    // creates a ticket for a user
     public static void buyTicket(){
         System.out.println("name:");
         String name = userInput();
@@ -69,15 +74,17 @@ public class Main {
         Numbers.add(randNum);
         Names.add(name);
     }
+    // check ticket given for user
     public static void checkTicket(){
         boolean isPrime = false;
+        // ticket input
         System.out.println("name on the ticket:");
         String name = userInput();
         System.out.println("number on the ticket:");
         int number = Integer.parseInt(userInput());
 
         boolean foundTicket = false;
-
+// validates ticket
         for (int i = 0; i < Names.size(); i++) {
             if(Names.get(i).equals(name)){
                 if(Numbers.get(i)== number){
@@ -102,6 +109,7 @@ public class Main {
 
 
     }
+    // check if number is prime
     public static boolean checkPrime(int number){
         boolean IsPrime = true;
 
@@ -115,3 +123,4 @@ public class Main {
         return IsPrime;
     }
 }
+
